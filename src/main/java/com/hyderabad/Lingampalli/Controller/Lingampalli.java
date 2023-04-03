@@ -40,7 +40,7 @@ public class Lingampalli {
 
 	@GetMapping("/isfullfurnished")
 	public String isFullyFurnished() {
-		return "Yes";
+		return "YES";
 	}
 
 }
