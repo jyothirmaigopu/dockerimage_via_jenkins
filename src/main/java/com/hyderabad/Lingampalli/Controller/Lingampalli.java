@@ -32,5 +32,10 @@ public class Lingampalli {
 	public String getUndividedShare() {
 		return "11 Square Yards";
 	}
+	
+	@GetMapping("/iscarparkingavailable")
+	public boolean isCarParkingAvailable() {
+		return false;
+	}
 
 }
