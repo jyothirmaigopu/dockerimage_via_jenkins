@@ -38,4 +38,9 @@ public class Lingampalli {
 		return false;
 	}
 
+	@GetMapping("/isfullfurnished")
+	public String isFullyFurnished() {
+		return "Yes";
+	}
+
 }
