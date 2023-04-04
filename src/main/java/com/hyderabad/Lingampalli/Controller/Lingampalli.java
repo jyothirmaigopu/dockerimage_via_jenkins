@@ -1,5 +1,9 @@
 package com.hyderabad.Lingampalli.Controller;
 
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/home")
 public class Lingampalli {
+	
+	@Autowired
+	US_times ust;
 	
 	@GetMapping("/flatsize")
 	public String getFlatSize() {
@@ -42,5 +49,24 @@ public class Lingampalli {
 	public String isFullyFurnished() {
 		return "YES";
 	}
+
+	@Scheduled(cron="*/10 * * * * *")
+	@GetMapping("/getIST")
+    public String getIst() {
+        // this will execute on weekdays
+		LocalDateTime localDateTime = LocalDateTime.now();
+		System.out.println(localDateTime);
+		return localDateTime.toString();
+    }
+	
+	@Scheduled(cron="*/10 * * * * *")
+	@GetMapping("/getEST")
+    public String getEst() {
+        // this will execute on weekdays
+		LocalDateTime localDateTime = LocalDateTime.now();
+		System.out.println(localDateTime);
+		return ust.getEST();
+    }
+	
 
 }
